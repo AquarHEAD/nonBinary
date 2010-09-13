@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      background-color: #C6DEFF;
+    }
+    #header {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 35px;
+      text-align: right;
+    }
+    #sep {
+      width: 100%:
+      margin-bottom: 2px;
+      min-height: 20px;
+      background-color: #E0FFFF;
+    }
+    #content {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      font-size: 15px;
+      text-align: left;
+    }
+    li {
+      margin: 0;
+      margin-top: 15px;
+      list-style-type: none;
+    }
+    li .date {
+      float: right;
+      font-size: 10px;
+      text-align: right;
+    }
+    </style>
+    <title>{% block title %}{% endblock %} | nonBinary</title>
+</head>
+
+<body>
+  <div id="header">
+    <p>nonBinary</p>
+  </div>
+  <div id="sep">
+  </div>
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

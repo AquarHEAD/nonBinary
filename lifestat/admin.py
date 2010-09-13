@@ -1,4 +1,7 @@
 from nonBinary.lifestat.models import Stat
 from django.contrib import admin
 
-admin.site.register(Stat)
+class StatAdmin(admin.ModelAdmin):
+    list_display = ('content', 'stat_date')
+
+admin.site.register(Stat, StatAdmin)
