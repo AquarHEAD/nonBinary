@@ -2,11 +2,19 @@
 
 {% block title %}Home{% endblock %}
 
+{% block new_stat %}
+<form action="/newstat/" method="POST">
+{% csrf_token %}
+{{ new_stat_form.as_p }}
+<input type="submit" value="Add" />
+</form>
+{% endblock %}
+
 {% block content %}
 {% if latest_stats %}
   <ul>
   {% for stat in latest_stats %}
-    <li>{{ stat.content }}<br /><span class="date">@ {{ stat.stat_date }}</span></li>
+    <li>{{ stat.content }}<br /><span class="del"><a href='/delete/{{ stat.id }}'>Delete It</a></span><span class="date">@ {{ stat.stat_date }}</span></li>
   {% endfor %}
   </ul>
 {% else %}

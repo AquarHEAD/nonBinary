@@ -13,5 +13,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^$', 'nonBinary.lifestat.views.home'),
+    (r'^newstat/$', 'nonBinary.lifestat.views.new'),
+    (r'^delete/(?P<stat_id>\d+)/$', 'nonBinary.lifestat.views.delete'),
     (r'^admin/', include(admin.site.urls)),
 )

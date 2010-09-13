@@ -22,8 +22,10 @@
     #sep {
       width: 100%:
       margin-bottom: 2px;
-      min-height: 20px;
       background-color: #E0FFFF;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
     }
     #content {
       width: 600px;
@@ -37,6 +39,16 @@
       margin: 0;
       margin-top: 15px;
       list-style-type: none;
+    }
+    li .del a{
+      float: left;
+      font-size: 10px;
+      color: #E6A9EC;
+      text-align: left;
+      text-decoration: none;
+    }
+    li .del a:hover {
+      background-color: #E0FFFF;
     }
     li .date {
       float: right;
@@ -52,6 +64,7 @@
     <p>nonBinary</p>
   </div>
   <div id="sep">
+    {% block new_stat %}{% endblock %}
   </div>
   <div id="content">
     {% block content %}{% endblock %}
