@@ -2,11 +2,12 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>{% block title %}{% endblock %} | nonBinary</title>
+    <title>{% block title %}{% endblock %} | moodStack</title>
     <style>
     * {
       padding: 0;
       margin: 0;
+      clear: both;
     }
     body {
       background-color: #C6DEFF;
@@ -22,25 +23,32 @@
     }
     #sep {
       width: 100%:
-      min-height: 20px;
       margin-bottom: 2px;
       background-color: #E0FFFF;
+      height: 34px;
+      font-size: 12px;
       padding-top: 5px;
-      padding-bottom: 5px;
+      padding=bottom: 5px;
       text-align: center;
     }
     #sep a{
+      font-size: 12px;
       text-align: center;
       text-decoration: none;
       color: #E6A9EC;
+    }
+    #sep a .show_form {
+      padding-top: 17px;
+      font-size: 24px;
     }
     #sep a:hover {
       text-decoration: underline;
     }
     form textarea {
       width: 300px;
-      height: 100px;
-      background-color: #C3FDB8;
+      height: 24px;
+      font-size: 12px;
+      background-color: #9AFEFF;
     }
     #content {
       width: 600px;
@@ -94,11 +102,11 @@
 
 <body>
   <div id="header">
-    <p>nonBinary</p>
+    <p>moodStack</p>
   </div>
   <div id="sep">
+    <a href="#" class="show_form"><br />call</a>
     {% block new_stat %}{% endblock %}
-    <a href="#" class="show_form">New Lifestat</a>
   </div>
   <div id="content">
     {% block content %}{% endblock %}
