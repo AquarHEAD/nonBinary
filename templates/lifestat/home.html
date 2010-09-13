@@ -3,10 +3,10 @@
 {% block title %}Home{% endblock %}
 
 {% block new_stat %}
-<form action="/newstat/" method="POST">
+<form class="new_stat_form" action="/newstat/" method="POST">
 {% csrf_token %}
-{{ new_stat_form.as_p }}
-<input type="submit" value="Add" />
+{{ new_stat_form.content }}
+<a href="#" class="submit">Submit</a> | <a href="#" class="cancel">Cancel</a>
 </form>
 {% endblock %}
 
