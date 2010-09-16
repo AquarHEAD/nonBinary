@@ -14,7 +14,7 @@
 {% if latest_stats %}
   <ul>
   {% for stat in latest_stats %}
-    <li>{{ stat.content }}<br /><span class="del"><a href='/delete/{{ stat.id }}'>pop</a></span><span class="date">@ {{ stat.stat_date }}</span></li>
+    <li>{{ stat.content|escape|linebreaks }}<br /><span class="del"><a href='/delete/{{ stat.id }}'>pop</a></span><span class="date">@ {{ stat.stat_date }}</span></li>
   {% endfor %}
   </ul>
 {% else %}
