@@ -1,5 +1,57 @@
 {% extends "base.html" %}
 
+{% block specstyle %}
+<style>
+#content {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      font-size: 15px;
+      text-align: left;
+    }
+li {
+  list-style-type: none;
+}
+li .cont {
+    margin: 0;
+    margin-top: 15px;
+}
+li .info{
+  font-size: 10px;
+}
+li .del a{
+    float: left;
+    color: #E6A9EC;
+    font-size: 10px;
+    text-align: left;
+    text-decoration: none;
+}
+li .del a:hover {
+    background-color: #E0FFFF;
+}
+li .date {
+    float: right;
+    font-size: 10px;
+    text-align: right;
+}
+.pagination .step-links {
+  font-size: 12px;
+  float: right;
+  text-align: right;
+  color: #736F6E;
+  margin-top: 8px;
+}
+.pagination .step-links a {
+  text-decoration: none;
+  color: #E6A9EC;
+}
+.pagination .step-links a:hover {
+  background-color: #E0FFFF;
+}
+</style>
+{% endblock %}
+
 {% block title %}Home{% endblock %}
 
 {% block new_stat %}
@@ -13,11 +65,27 @@
 {% block content %}
 {% if latest_stats %}
   <ul>
-  {% for stat in latest_stats %}
-    <li>{{ stat.content|escape|linebreaks }}<br /><span class="del"><a href='/delete/{{ stat.id }}'>pop</a></span><span class="date">@ {{ stat.stat_date }}</span></li>
+  {% for stat in latest_stats.object_list %}
+    <li class="cont">{{ stat.content|escape|linebreaks }}</li>
+    <li class="info"><span class="del"><a href='/delete/{{ stat.id }}'>pop</a></span><span class="date">@ {{ stat.stat_date }}</span></li>
   {% endfor %}
   </ul>
 {% else %}
   <p>Currently no stats.</p>
 {% endif %}
+<div class="pagination">
+    <span class="step-links">
+        {% if latest_stats.has_previous %}
+            <a href="?page={{ latest_stats.previous_page_number }}">previous</a> |
+        {% endif %}
+
+        <span class="current">
+            Page {{ latest_stats.number }} of {{ latest_stats.paginator.num_pages }}
+        </span>
+
+        {% if latest_stats.has_next %}
+            | <a href="?page={{ latest_stats.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}
